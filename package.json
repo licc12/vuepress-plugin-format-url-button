@@ -1,0 +1,28 @@
+{
+  "name": "vuepress-plugin-format-url-button",
+  "version": "1.0.0",
+  "description": "Add a link button in your vuepress page!",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/licc12/vuepress-plugin-format-url-button.git"
+  },
+  "keywords": [
+    "vuepress",
+    "plugin",
+    "link",
+    "button"
+  ],
+  "files": [
+    "index.js",
+    "lib/",
+    "package.json",
+    "README.md"
+  ],
+  "author": "Nyakku Shigure",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/licc12/vuepress-plugin-format-url-button/issues"
+  },
+  "homepage": "https://github.com/licc12/vuepress-plugin-format-url-button#readme"
+}
