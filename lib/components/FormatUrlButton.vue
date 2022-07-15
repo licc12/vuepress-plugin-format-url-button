@@ -39,9 +39,7 @@ export default {
       dom.id = 'format-url-button';
       dom.href = location.pathname + targetUrl;
       dom.target = '_block';
-      dom.className =
-        'el-button el-button--primary is-plain format-url-button ' +
-          btnClassName || '';
+      dom.className = 'format-url-button ' + btnClassName;
       dom.style.position = 'absolute';
       dom.style.right = right + 'px';
       dom.style.top = top + 'px';

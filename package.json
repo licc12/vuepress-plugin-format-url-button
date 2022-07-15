@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-format-url-button",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Add a link button in your vuepress page!",
   "main": "index.js",
   "repository": {
