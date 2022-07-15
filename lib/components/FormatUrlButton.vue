@@ -11,13 +11,17 @@ export default {
         right: RIGHT,
         btnClassName: BTN_CLASSNAME,
         btnText: BTN_TEXT,
-        parentClassId: PARENT_CLASSNAME,
+        parentClassId: PARENT_CLASS_ID,
         targetUrl: TARGET_URL,
       },
     };
   },
   mounted() {
-    this.getIconElm();
+    const _that = this;
+    setTimeout(function(){
+      _that.getIconElm();
+    },1000)
+
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
         this.getIconElm();
@@ -27,7 +31,9 @@ export default {
   methods: {
     getIconElm() {
       const hasBtn = document.querySelector('#format-url-button');
-      if (hasBtn || !this.config.regx.test(location.pathname)) return;
+
+      const regx = new RegExp(this.config.regx);
+      if (hasBtn || !regx.test(location.pathname)) return;
       const {top, right, btnText,btnClassName,targetUrl, parentClassId } = this.config;
       var dom = document.createElement('a');
       dom.id = 'format-url-button';
@@ -39,7 +45,6 @@ export default {
       dom.style.position = 'absolute';
       dom.style.right = right + 'px';
       dom.style.top = top + 'px';
-
       var text = document.createTextNode(btnText);
       dom.appendChild(text);
       document.querySelector(parentClassId).appendChild(dom);

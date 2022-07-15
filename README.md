@@ -29,7 +29,7 @@ module.exports = {
    plugins: [
       'format-url-button',
       {
-         regx: /\/md-ppt\/.*?\/(?!\/README.html)$/g,
+         regx: '/md-ppt/.*(?<!README.html)$',
          top: 30,
          right: 50,
          btnClassName: '',
@@ -52,7 +52,7 @@ module.exports = {
          'format-url-button',
          {
             /** 匹配pathname URL规则: 默认以/md-ppt/开头，非README.html结尾 **/
-            regx = /\/md-ppt\/.*?\/(?!\/README.html)$/g,
+            regx = '\/md-ppt\/.*(?<!README.html)$',
             /** 按钮距离父级容器top距离 **/
             top = 30,
             /** 按钮距离父级容器right距离 **/
