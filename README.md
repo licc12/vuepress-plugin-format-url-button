@@ -26,7 +26,18 @@ npm i vuepress-plugin-format-url-button -D
 
 ```javascript
 module.exports = {
-   plugins: ['format-url-button'],
+   plugins: [
+      'format-url-button',
+      {
+         regx: /\/md-ppt\/.*?\/(?!\/README.html)$/g,
+         top: 30,
+         right: 50,
+         btnClassName: '',
+         btnText: '进入演示视图',
+         parentClassId: '.theme-default-content',
+         targetUrl: 'README.html',
+      },
+   ],
 }
 ```
 
