@@ -11,8 +11,8 @@ export default {
         right: RIGHT,
         btnClassName: BTN_CLASSNAME,
         btnText: BTN_TEXT,
+        pathUrl: PATH_URL,
         parentClassId: PARENT_CLASS_ID,
-        targetUrl: TARGET_URL,
       },
     };
   },
@@ -37,7 +37,8 @@ export default {
       const {top, right, btnText,btnClassName,targetUrl, parentClassId } = this.config;
       var dom = document.createElement('a');
       dom.id = 'format-url-button';
-      dom.href = location.pathname + targetUrl;
+      const urlPath = location.pathname.replaceAll(/md-ppt/g,PATH_URL)
+      dom.href = urlPath;
       dom.target = '_block';
       dom.className = 'format-url-button ' + btnClassName;
       dom.style.position = 'absolute';
