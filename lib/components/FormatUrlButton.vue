@@ -5,7 +5,9 @@ export default {
   name: 'FormatUrlButton',
   data() {
     return {
+      time:null,
       config: {
+        devShow: DEV_SHOW,
         regx: REGX,
         top: TOP,
         right: RIGHT,
@@ -16,11 +18,17 @@ export default {
       },
     };
   },
+  destroyed() {
+    if(this.time){
+      clearTimeout(this.time)
+    }
+  },
   mounted() {
+    if(this.config.devShow)return;
     const _that = this;
-    setTimeout(function(){
+    this.time = setTimeout(function(){
       _that.getIconElm();
-    },1000)
+    },1000);
 
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
