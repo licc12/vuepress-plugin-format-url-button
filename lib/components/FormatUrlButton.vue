@@ -7,7 +7,7 @@ export default {
     return {
       time:null,
       config: {
-        devShow: DEV_SHOW,
+        devHide: DEV_HIDE,
         regx: REGX,
         top: TOP,
         right: RIGHT,
@@ -24,7 +24,8 @@ export default {
     }
   },
   mounted() {
-    if(this.config.devShow)return;
+    /** dev环境是否开启显示，默认显示 */
+    if(this.config.devHide && __VUEPRESS_DEV__)return;
     const _that = this;
     this.time = setTimeout(function(){
       _that.getIconElm();

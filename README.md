@@ -24,18 +24,19 @@ npm i vuepress-plugin-format-url-button -D
 
 ## Usage
 
-```javascript
+```js
 module.exports = {
    plugins: [
       'format-url-button',
       {
-         regx: '/md-ppt/.*(?<!README.html)$',
-         top: 30,
+         devShow: false,
+         regx: '/md-ppt/.*/*.html$',
+         top: 50,
          right: 50,
          btnClassName: '',
-         btnText: '进入演示视图',
+         btnText: '演示模式',
+         pathUrl: 'mdppt',
          parentClassId: '.theme-default-content',
-         targetUrl: 'README.html',
       },
    ],
 }
@@ -51,20 +52,22 @@ module.exports = {
       [
          'format-url-button',
          {
-            /** 匹配pathname URL规则: 默认以/md-ppt/开头，非README.html结尾 **/
-            regx = '\/md-ppt\/.*(?<!README.html)$',
+            /** 测试环境是否隐藏, 默认显示 */
+            devShow: false,
+            /** 匹配pathname URL规则: 默认以/md-ppt/开头，.html结尾 **/
+            regx: '/md-ppt/.*/*.html$',
             /** 按钮距离父级容器top距离 **/
-            top = 30,
+            top: 50,
             /** 按钮距离父级容器right距离 **/
-            right = 50,
+            right: 50,
             /** 按钮的自定义class; 例如：btn-class **/
-            btnClassName = '',
+            btnClassName: '',
             /** 按钮的自定义文案 **/
-            btnText = '按钮',
+            btnText: '演示模式',
+            /** 目标目录 */
+            pathUrl: 'mdppt',
             /** 需要插入父级的元素的class或者id;例如：.btn-class | #btn-id **/
-            parentClassId = '.theme-default-content',
-            /** 自定义拼接按钮的link 后缀，例如：/a/b/XXX, 默认 README.html **/
-            targetUrl = 'README.html',
+            parentClassId: '.theme-default-content',
          },
       ],
    ],

@@ -3,8 +3,8 @@ const { path } = require("@vuepress/utils");
 module.exports = (options) => {
   return {
     define: {
-      /** 测试环境是否显示, 默认不现显示按钮 */
-      DEV_SHOW: options.devHide || true,
+      /** 测试环境是否隐藏, 默认显示 */
+      DEV_HIDE: options.devHide || false,
       /** 匹配pathname URL规则: 默认以/md-ppt/开头，.html结尾 **/
       REGX: options.regx || '\/md-ppt\/.*\/*.html$',
       /** 按钮距离父级容器top距离 **/
