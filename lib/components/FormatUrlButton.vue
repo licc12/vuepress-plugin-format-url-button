@@ -8,6 +8,7 @@ export default {
       time:null,
       config: {
         devHide: DEV_HIDE,
+        hiddenElement: HIDEN_ELEMENT,
         regx: REGX,
         top: TOP,
         right: RIGHT,
@@ -19,15 +20,24 @@ export default {
     };
   },
   destroyed() {
-    if(this.time){
-      clearTimeout(this.time)
+    if(this.time1){
+      clearTimeout(this.time1)
+    }
+    if(this.time2){
+      clearTimeout(this.time2)
     }
   },
   mounted() {
     /** dev环境是否开启显示，默认显示 */
     if(this.config.devHide && __VUEPRESS_DEV__)return;
     const _that = this;
-    this.time = setTimeout(function(){
+    this.time1 = setTimeout(function(){
+      const { hiddenElement } = _that.config;
+      if(hiddenElement && document.querySelector(hiddenElement)){
+        document.querySelector(hiddenElement).style.display="none";
+      }
+    },300);
+    this.time2 = setTimeout(function(){
       _that.getIconElm();
     },1000);
 
@@ -43,7 +53,7 @@ export default {
 
       const regx = new RegExp(this.config.regx);
       if (hasBtn || !regx.test(location.pathname)) return;
-      const {top, right, btnText,btnClassName,targetUrl, parentClassId } = this.config;
+      const {top, right, btnText,btnClassName, parentClassId, hiddenElement } = this.config;
       var dom = document.createElement('a');
       dom.id = 'format-url-button';
       const urlPath = location.pathname.replaceAll(/md-ppt/g,PATH_URL)
@@ -56,13 +66,6 @@ export default {
       var text = document.createTextNode(btnText);
       dom.appendChild(text);
       document.querySelector(parentClassId).appendChild(dom);
-    },
-  },
-  watch: {
-    $route(to, from) {
-      if (to.path !== from.path) {
-        this.getIconElm();
-      }
     },
   },
 };

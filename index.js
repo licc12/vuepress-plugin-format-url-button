@@ -5,6 +5,8 @@ module.exports = (options) => {
     define: {
       /** 测试环境是否隐藏, 默认显示 */
       DEV_HIDE: options.devHide || false,
+      /** 需要隐藏的元素，默认'' */
+      HIDEN_ELEMENT: options?.hiddenElement || '',
       /** 匹配pathname URL规则: 默认以/md-ppt/开头，.html结尾 **/
       REGX: options.regx || '\/md-ppt\/.*\/*.html$',
       /** 按钮距离父级容器top距离 **/
